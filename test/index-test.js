@@ -32,14 +32,14 @@ describe('index', () => {
     })
   })
 
-  it('calls console.warn("made a mistake!")', done => {
+  it('calls console.error("made a mistake!")', done => {
     const spy = expect.spyOn(console, 'warn').andCallThrough()
 
     jsdom.env(html, [src], {
       virtualConsole: jsdom.createVirtualConsole().sendTo(console)
     }, (err, window) => {
       expect(spy).toHaveBeenCalled('expected console.warn to have been called')
-      console.warn.restore()
+      console.error.restore()
       done()
     })
   })
