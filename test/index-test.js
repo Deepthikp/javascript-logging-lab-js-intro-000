@@ -21,7 +21,7 @@ describe('index', () => {
   })
 
   it('calls console.error("i am trying it")', done => {
-    const spy = expect.spyOn(console, 'log').andCallThrough()
+    const spy = expect.spyOn(console, 'error').andCallThrough()
 
     jsdom.env(html, [src], {
       virtualConsole: jsdom.createVirtualConsole().sendTo(console)
